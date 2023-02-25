@@ -87,6 +87,7 @@ public class Produits extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jLabel2 = new javax.swing.JLabel();
         jPanel4 = new javax.swing.JPanel();
+        jButton7 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -149,7 +150,7 @@ public class Produits extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton3);
-        jButton3.setBounds(120, 220, 110, 40);
+        jButton3.setBounds(130, 220, 110, 40);
 
         jButton4.setBackground(new java.awt.Color(255, 51, 0));
         jButton4.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
@@ -161,7 +162,7 @@ public class Produits extends javax.swing.JFrame {
             }
         });
         jPanel1.add(jButton4);
-        jButton4.setBounds(230, 220, 130, 40);
+        jButton4.setBounds(250, 220, 130, 40);
 
         jPanel2.setBackground(new java.awt.Color(0, 0, 51));
         jPanel2.setPreferredSize(new java.awt.Dimension(850, 500));
@@ -284,7 +285,7 @@ public class Produits extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton1);
-        jButton1.setBounds(0, 140, 140, 40);
+        jButton1.setBounds(0, 140, 136, 40);
 
         comrech.setBackground(new java.awt.Color(204, 204, 204));
         comrech.setEditable(true);
@@ -310,7 +311,7 @@ public class Produits extends javax.swing.JFrame {
             }
         });
         jPanel3.add(txtrech);
-        txtrech.setBounds(150, 140, 180, 40);
+        txtrech.setBounds(150, 140, 150, 40);
 
         txtseuil.setBackground(new java.awt.Color(204, 204, 204));
         txtseuil.addActionListener(new java.awt.event.ActionListener() {
@@ -336,22 +337,22 @@ public class Produits extends javax.swing.JFrame {
             }
         });
         jPanel3.add(jButton6);
-        jButton6.setBounds(225, 0, 110, 23);
+        jButton6.setBounds(200, 0, 110, 23);
 
         jPanel1.add(jPanel3);
-        jPanel3.setBounds(500, 220, 340, 290);
+        jPanel3.setBounds(530, 220, 310, 290);
 
         jButton5.setBackground(new java.awt.Color(255, 51, 0));
         jButton5.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Actualiser");
+        jButton5.setText("Effacer");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         jPanel1.add(jButton5);
-        jButton5.setBounds(360, 220, 130, 40);
+        jButton5.setBounds(390, 220, 130, 40);
 
         jLabel2.setFont(new java.awt.Font("Times New Roman", 3, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
@@ -360,6 +361,19 @@ public class Produits extends javax.swing.JFrame {
         jLabel2.setBounds(250, 10, 370, 30);
 
         jPanel4.setBackground(new java.awt.Color(255, 51, 0));
+        jPanel4.setLayout(null);
+
+        jButton7.setBackground(new java.awt.Color(0, 0, 255));
+        jButton7.setForeground(new java.awt.Color(255, 255, 255));
+        jButton7.setText("Retour");
+        jButton7.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton7ActionPerformed(evt);
+            }
+        });
+        jPanel4.add(jButton7);
+        jButton7.setBounds(0, 0, 72, 23);
+
         jPanel1.add(jPanel4);
         jPanel4.setBounds(0, 0, 840, 70);
 
@@ -390,6 +404,7 @@ public class Produits extends javax.swing.JFrame {
             System.out.println(db.queryInsert("produits", colon, inf));
             table();
             actualiser();
+            JOptionPane.showMessageDialog(this, "Produit ajouté");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -407,6 +422,7 @@ public class Produits extends javax.swing.JFrame {
             System.out.println(db.queryUpdate("produits", colon, inf, "id='" + id + "'"));
             table();
             actualiser();
+            JOptionPane.showMessageDialog(this, "Produit mis à jour");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -418,11 +434,13 @@ public class Produits extends javax.swing.JFrame {
             return;
         }
         table();
+        JOptionPane.showMessageDialog(this, "Produit supprimé");
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
-actualiser(); table();        // TODO add your handling code here:
+actualiser();
+// table();        // TODO add your handling code here:
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
@@ -508,36 +526,43 @@ txtseuil.setText(String.valueOf(tbl_prod.getValueAt(tbl_prod.getSelectedRow(), 9
 
     private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
      table();
- //highlightLowStockProducts(tbl_prod);
+ highlightLowStockProducts(tbl_prod);
     }//GEN-LAST:event_jButton6ActionPerformed
+
+    private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
+        // TODO add your handling code here:
+        Principale a=new Principale();
+a.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton7ActionPerformed
 
    
   
     public void highlightLowStockProducts(JTable table) {
     try {
-        // Connect to the database and execute a query to retrieve products and their stock and stock limit
-      Connection conn = (Connection) DriverManager.getConnection("jdbc:mysql://localhost/gestion_produits", "root", "");
-        Statement stmt = (Statement) conn.createStatement();
-        ResultSet rs = stmt.executeQuery("SELECT * FROM produits");
+        // cnx a la dbb
+      rs = db.querySelectAll("produits");
         
-        // Iterate over the result set and highlight the corresponding rows in the table
+        
         while (rs.next()) {
-            int productId = rs.getInt("id");
+            int productid = rs.getInt("id");
             int stock = rs.getInt("Stock");
             int stockLimit = rs.getInt("Seuil");
+           
             if (stock < stockLimit) {
                 for (int row = 0; row < table.getRowCount(); row++) {
-                    if (table.getValueAt(row, 0).equals(productId)) {
-                        table.setSelectionBackground(Color.RED); // Change the row color to yellow 
+                    if (table.getValueAt(row, 0).equals(productid)) {
+                       table.setSelectionBackground(Color.RED); // Changer la couleur en rouge
+                     
+                    
                     }
                 }
             }
-        }
+        } 
         
-        // Close the database connection and resources
+        
         rs.close();
-        stmt.close();
-        conn.close();
+       
         
         
     } catch (SQLException ex) {
@@ -545,7 +570,7 @@ txtseuil.setText(String.valueOf(tbl_prod.getValueAt(tbl_prod.getSelectedRow(), 9
     }
 }
 
-    /**
+    /** 
      * @param args the command line arguments
      */
     public static void main(String args[]) {
@@ -589,6 +614,7 @@ txtseuil.setText(String.valueOf(tbl_prod.getValueAt(tbl_prod.getSelectedRow(), 9
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
     private javax.swing.JButton jButton6;
+    private javax.swing.JButton jButton7;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;

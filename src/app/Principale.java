@@ -39,7 +39,7 @@ public class Principale extends javax.swing.JFrame {
         jButton2.setBackground(new java.awt.Color(255, 51, 0));
         jButton2.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jButton2.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2.setText("Caisse");
+        jButton2.setText("Fournisseurs");
         jButton2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2ActionPerformed(evt);
@@ -69,7 +69,7 @@ public class Principale extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(255, 51, 0));
         jButton5.setFont(new java.awt.Font("Times New Roman", 3, 24)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("Fournisseurs");
+        jButton5.setText("Approvisionnement");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
@@ -127,18 +127,21 @@ public class Principale extends javax.swing.JFrame {
         // TODO add your handling code here:
         Produits p=new Produits();
 p.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
        Utilisateurs u =new Utilisateurs();
 u.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_jButton3ActionPerformed
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
         // TODO add your handling code here:
-        Caisse c=new Caisse();
+        Fournisseurs c=new Fournisseurs();
 c.setVisible(true);
+this.dispose();
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
@@ -150,9 +153,9 @@ this.dispose();
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        Fournisseurs f=new Fournisseurs();
+        Approvisionnement f=new Approvisionnement();
 f.setVisible(true);
-                                           
+                       this.dispose();                    
     }//GEN-LAST:event_jButton5ActionPerformed
 
     /**

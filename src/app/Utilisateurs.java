@@ -64,11 +64,13 @@ public class Utilisateurs extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         jLabel6 = new javax.swing.JLabel();
+        jButton6 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
 
         jPanel1.setBackground(new java.awt.Color(0, 0, 51));
 
+        tbl_user.setBackground(new java.awt.Color(204, 204, 204));
         tbl_user.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null, null},
@@ -260,7 +262,7 @@ public class Utilisateurs extends javax.swing.JFrame {
                         .addComponent(jButton1)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(txtrech, javax.swing.GroupLayout.PREFERRED_SIZE, 169, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addComponent(comrech, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(comrech, javax.swing.GroupLayout.PREFERRED_SIZE, 294, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(0, 23, Short.MAX_VALUE))
         );
         jPanel3Layout.setVerticalGroup(
@@ -293,12 +295,22 @@ public class Utilisateurs extends javax.swing.JFrame {
         jLabel6.setForeground(new java.awt.Color(255, 255, 255));
         jLabel6.setText("Utilisateurs");
 
+        jButton6.setBackground(new java.awt.Color(0, 0, 255));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
+        jButton6.setText("Rerour");
+        jButton6.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton6ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
             jPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel4Layout.createSequentialGroup()
-                .addGap(328, 328, 328)
+                .addComponent(jButton6)
+                .addGap(253, 253, 253)
                 .addComponent(jLabel6)
                 .addContainerGap(336, Short.MAX_VALUE))
         );
@@ -308,6 +320,9 @@ public class Utilisateurs extends javax.swing.JFrame {
                 .addContainerGap()
                 .addComponent(jLabel6, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGap(18, 18, 18))
+            .addGroup(jPanel4Layout.createSequentialGroup()
+                .addComponent(jButton6)
+                .addGap(0, 0, Short.MAX_VALUE))
         );
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
@@ -376,6 +391,7 @@ public class Utilisateurs extends javax.swing.JFrame {
             System.out.println(db.queryInsert("users", colon, inf));
             table();
             actualiser();
+            JOptionPane.showMessageDialog(this, "Utilisateur ajouté");
         }
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -390,6 +406,7 @@ public class Utilisateurs extends javax.swing.JFrame {
             System.out.println(db.queryUpdate("users", colon, inf, "id='" + id + "'"));
             table();
             actualiser();
+            JOptionPane.showMessageDialog(this, "Utilisateur mis à jour");
         }
     }//GEN-LAST:event_jButton3ActionPerformed
 
@@ -401,6 +418,7 @@ public class Utilisateurs extends javax.swing.JFrame {
             return;
         }
         table();
+        JOptionPane.showMessageDialog(this, "Utilisateur supprimé");
 
     }//GEN-LAST:event_jButton4ActionPerformed
 
@@ -444,6 +462,13 @@ public class Utilisateurs extends javax.swing.JFrame {
         txtpa.setText(String.valueOf(tbl_user.getValueAt(tbl_user.getSelectedRow(), 3)));
      
     }//GEN-LAST:event_tbl_userMouseClicked
+
+    private void jButton6ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton6ActionPerformed
+        // TODO add your handling code here:
+          Principale a=new Principale();
+a.setVisible(true);
+this.dispose();
+    }//GEN-LAST:event_jButton6ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -489,6 +514,7 @@ public class Utilisateurs extends javax.swing.JFrame {
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;
+    private javax.swing.JButton jButton6;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
