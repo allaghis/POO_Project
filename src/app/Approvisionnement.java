@@ -92,6 +92,7 @@ public class Approvisionnement extends javax.swing.JFrame {
         jButton5 = new javax.swing.JButton();
         txtstock = new javax.swing.JTextField();
         jLabel11 = new javax.swing.JLabel();
+        jButton3 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -351,14 +352,14 @@ public class Approvisionnement extends javax.swing.JFrame {
         jButton5.setBackground(new java.awt.Color(255, 51, 0));
         jButton5.setFont(new java.awt.Font("Tahoma", 3, 18)); // NOI18N
         jButton5.setForeground(new java.awt.Color(255, 255, 255));
-        jButton5.setText("recherche ");
+        jButton5.setText("Recherche ");
         jButton5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton5ActionPerformed(evt);
             }
         });
         jPanel2.add(jButton5);
-        jButton5.setBounds(200, 70, 128, 30);
+        jButton5.setBounds(200, 70, 140, 30);
 
         txtstock.setBackground(new java.awt.Color(204, 204, 204));
         jPanel2.add(txtstock);
@@ -368,6 +369,17 @@ public class Approvisionnement extends javax.swing.JFrame {
         jLabel11.setText("Stock :");
         jPanel2.add(jLabel11);
         jLabel11.setBounds(440, 270, 120, 30);
+
+        jButton3.setBackground(new java.awt.Color(0, 0, 255));
+        jButton3.setForeground(new java.awt.Color(255, 255, 255));
+        jButton3.setText("Actualiser");
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+        jPanel2.add(jButton3);
+        jButton3.setBounds(655, 0, 90, 23);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -477,7 +489,7 @@ public class Approvisionnement extends javax.swing.JFrame {
         
         } else {
             String[] colon = {"Code","Nom","Type","Couleur","Finition","Prix","Stock"};
-            String[] isi = {txtcode.getText(), txtnom.getText(), txttype.getText(), txtcou.getText(), txtfin.getText(), txtprix.getText(), txtstock.getText()};
+            String[] isi = {txtcode.getText(), txtnom.getText(), txttype.getText(), txtcou.getText(), txtfin.getText(), txtprix.getText(), txtqte.getText()};
             System.out.println(db.queryInsert("produits", colon, isi));
             try {
                 if (!test_stock()) { 
@@ -485,6 +497,7 @@ public class Approvisionnement extends javax.swing.JFrame {
                 } else {
                     def(); //true
                     table(); //true
+                     JOptionPane.showMessageDialog(this, "Produit acheté");
                 }
             } catch (SQLException ex) {
                 Logger.getLogger(Approvisionnement.class.getName()).log(Level.SEVERE, null, ex);
@@ -493,7 +506,7 @@ public class Approvisionnement extends javax.swing.JFrame {
             subtotal();
            
         }
-        JOptionPane.showMessageDialog(this, "Produit acheté");
+       // JOptionPane.showMessageDialog(this, "Produit acheté");
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -531,6 +544,21 @@ public class Approvisionnement extends javax.swing.JFrame {
 a.setVisible(true);
 this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
+
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+       /** pour actualiser */
+        txtcode.setText("");
+            txtnom.setText (""); 
+                    txtfour.setText("");
+                             txttype.setText("");
+                                     txtcou.setText("");
+                                             txtfin.setText("");
+                                                     txtprix.setText("");
+                                                             txtstock.setText("");
+                                                                     txtqte.setText("");
+                                                                     lbltot1.setText("0");
+                                                                     table();
+    }//GEN-LAST:event_jButton3ActionPerformed
 
     
    
@@ -615,6 +643,7 @@ this.dispose();
     public static javax.swing.JComboBox comrech;
     private javax.swing.JButton jButton1;
     public static javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
     public static javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
     public static javax.swing.JLabel jLabel10;

@@ -520,9 +520,9 @@ public class Caisse extends javax.swing.JFrame {
                 System.err.println("\n"+ex);
             }
             subtotal();
-           
+           JOptionPane.showMessageDialog(this, "Produit vendu");
         }
-        JOptionPane.showMessageDialog(this, "Produit vendu");
+       
 
     }//GEN-LAST:event_jButton2ActionPerformed
 
@@ -532,6 +532,16 @@ public class Caisse extends javax.swing.JFrame {
 
     private void jButton7ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton7ActionPerformed
      /** pour actualiser la table */
+      txtcode.setText("");
+            txtnom.setText (""); 
+                    
+                             txttype.setText("");
+                                     txtcou.setText("");
+                                             txtfini.setText("");
+                                                     txtprix.setText("");
+                                                            
+                                                                     txtqte.setText("");
+                                                                     lbltot1.setText("0");
         table();  
      
     }//GEN-LAST:event_jButton7ActionPerformed

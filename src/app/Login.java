@@ -136,7 +136,7 @@ public class Login extends javax.swing.JFrame {
         jButton2cancel.setBackground(new java.awt.Color(204, 0, 51));
         jButton2cancel.setFont(new java.awt.Font("Segoe UI", 2, 24)); // NOI18N
         jButton2cancel.setForeground(new java.awt.Color(255, 255, 255));
-        jButton2cancel.setText("Clear");
+        jButton2cancel.setText("Effacer");
         jButton2cancel.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton2cancelActionPerformed(evt);
@@ -223,7 +223,10 @@ public class Login extends javax.swing.JFrame {
     }//GEN-LAST:event_jLabel3MouseClicked
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-       /** fonction pour se connecter et verifier que le user et password sont correct */
+/** fonction pour se connecter et verifier que le user et password sont correct */
+        if ( txt_username.getText().equals("") || txt_password.getText().equals("") ) {
+            JOptionPane.showMessageDialog(this, "Veuillez saisir les informations.");    }
+        else {
            rs = db.querySelectAll("users", "username='" + txt_username.getText() + "' and password='" + txt_password.getText() + "'");
         try {
             while (rs.next()) {
@@ -248,6 +251,7 @@ public class Login extends javax.swing.JFrame {
                 k.setVisible(true);
                 this.dispose();
             }
+        }
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 

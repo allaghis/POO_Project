@@ -265,6 +265,7 @@ public class Fournisseurs extends javax.swing.JFrame {
         jLabel5.setText("Fournisseurs");
 
         jButton6.setBackground(new java.awt.Color(0, 0, 255));
+        jButton6.setForeground(new java.awt.Color(255, 255, 255));
         jButton6.setText("Retour");
         jButton6.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -402,6 +403,10 @@ public class Fournisseurs extends javax.swing.JFrame {
 
     private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
        /** fonction pour ajouter un fournisseur */
+       if (txtnom.getText().equals("") || txttlfn.getText().equals("") || txtemail.getText().equals("")
+                || txtadress.getText().equals("")) {
+            JOptionPane.showMessageDialog(this, "Veuillez saisir toutes les informations.");
+        } else {
         try{
             String vname = txtnom.getText();
             String phone = txttlfn.getText();
@@ -429,6 +434,7 @@ public class Fournisseurs extends javax.swing.JFrame {
         catch(SQLException e){
             Logger.getLogger(Fournisseurs.class.getName()).log(Level.SEVERE, null, e);
         }
+       }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jTable1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jTable1MouseClicked
@@ -522,7 +528,7 @@ public class Fournisseurs extends javax.swing.JFrame {
         txttlfn.setText("");
         txtemail.setText("");
         txtadress.setText("");
-        txtnom.requestFocus();
+       // txtnom.requestFocus();
         charger();
 
         jButton2.setEnabled(true);
@@ -539,7 +545,7 @@ public class Fournisseurs extends javax.swing.JFrame {
             } else if (comrech.getSelectedItem().equals("Telephone")) {
                 rs = db.querySelectAll("fournisseurss", "Telephone LIKE '%" + txtrech.getText() + "%' ");
                 jTable1.setModel(new ResultSetTableModel(rs));
-            } else if (comrech.getSelectedItem().equals("Email")) {
+            } else if (comrech.getSelectedItem().equals("E-mail")) {
                 rs = db.querySelectAll("fournisseurss", "Email LIKE '%" + txtrech.getText() + "%' ");
                 jTable1.setModel(new ResultSetTableModel(rs));
             } else if (comrech.getSelectedItem().equals("Adresse")) {
